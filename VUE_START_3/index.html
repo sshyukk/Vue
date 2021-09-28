@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    msg: 'Hello Vue!'
+                }
+            }
+        })
+        // 생성한 앱을 html 어느 태그에 마운트, 즉 올릴 것인지 연결을 지정해 준다.
+        // 이때 마운트 했을 때 인스턴스가 반환된다.
+        const viewModel = app.mount('#app')
+        viewModel.msg = 'Good!'
+    </script>
+</body>
+</html>

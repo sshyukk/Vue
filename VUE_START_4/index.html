@@ -18,13 +18,11 @@
                     message: 'Hello Vue!'
                 }
             },
-            beforeUpdate() {
-                console.log('before update !', this.message)
-                console.log(document.querySelector('h1').textContent)
+            beforeUnmount() {
+                console.log('before unmount !')
             },
-            updated() {
-                console.log('updated !', this.message)
-                console.log(document.querySelector('h1').textContent)
+            unmounted() {
+                console.log('unmounted !')
             }
         }
         const app = Vue.createApp(App)

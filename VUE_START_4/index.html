@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    message: 'Hello Vue!'
+                }
+            },
+            beforeCreate() {
+                console.log('before create !')
+            },
+            created() {
+                console.log('created !')
+            },
+            beforeMount() {
+                console.log('before mounted !')
+            },
+            mounted() {
+                console.log('mounted !')
+            }
+        }
+        const app = Vue.createApp(App)
+        const viewModel = app.mount('#app')
+    </script>
+</body>
+</html>

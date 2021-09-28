@@ -9,21 +9,21 @@
 </head>
 <body>
     <div id="app">
-        <div v-if="active">Hello Vue!</div>
-        <button v-on:click="toggle">Toggle</button>
+        <ul>
+            <li v-for="fruit in fruits">
+                {{ fruit }}
+            </li>
+        </ul>
     </div>
     <script>
         const App = {
             data() {
                 return {
-                    active: false
+                    fruits: [
+                        'Apple', 'Banana', 'Cherry'
+                    ]
                 }
             },
-            methods: {
-                toggle() {
-                    this.active = !this.active
-                }
-            }
         }
         app = Vue.createApp(App).mount('#app')
     </script>

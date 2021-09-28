@@ -16,6 +16,7 @@
     <div id="app">
         <!-- 디렉티브 문법으로 자바스크립트 객체 데이터 생성 -->
         <div v-bind:class="{ orange: active }">{{ counter }}</div>
+        <button v-on:click="increase">Click me!</button>
     </div>
     <script>
         const App = {
@@ -26,6 +27,11 @@
                     active: true
                 }
             },
+            methods: {
+                increase() {
+                    this.counter += 1
+                }
+            }
         }
         const app = Vue.createApp(App).mount('#app')
     </script>

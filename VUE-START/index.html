@@ -8,16 +8,22 @@
     <script src="https://unpkg.com/vue@next"></script>
 </head>
 <body>
+    <style>
+        .orange {
+            color: orange;
+        }
+    </style>
     <div id="app">
-        <!-- 이중 중괄호 구문 사용 -->
-        {{ counter }}
+        <!-- 디렉티브 문법으로 자바스크립트 객체 데이터 생성 -->
+        <div v-bind:class="{ orange: active }">{{ counter }}</div>
     </div>
     <script>
         const App = {
             // 함수로 정의하는 각 객체들은 '옵션'이라고도 할 수 있다.
             data() {
                 return {
-                    counter: 0
+                    counter: 0,
+                    active: true
                 }
             },
         }

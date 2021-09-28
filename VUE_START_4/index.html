@@ -18,21 +18,13 @@
                     message: 'Hello Vue!'
                 }
             },
-            beforeCreate() {
-                console.log('before create !', this.message)
-                console.log(document.querySelector('h1'))
+            beforeUpdate() {
+                console.log('before update !', this.message)
+                console.log(document.querySelector('h1').textContent)
             },
-            created() {
-                console.log('created !', this.message)
-                console.log(document.querySelector('h1'))
-            },
-            beforeMount() {
-                console.log('before mounted !', this.message)
-                console.log(document.querySelector('h1'))
-            },
-            mounted() {
-                console.log('mounted !', this.message)
-                console.log(document.querySelector('h1'))
+            updated() {
+                console.log('updated !', this.message)
+                console.log(document.querySelector('h1').textContent)
             }
         }
         const app = Vue.createApp(App)

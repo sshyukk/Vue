@@ -19,16 +19,20 @@
                 }
             },
             beforeCreate() {
-                console.log('before create !')
+                console.log('before create !', this.message)
+                console.log(document.querySelector('h1'))
             },
             created() {
-                console.log('created !')
+                console.log('created !', this.message)
+                console.log(document.querySelector('h1'))
             },
             beforeMount() {
-                console.log('before mounted !')
+                console.log('before mounted !', this.message)
+                console.log(document.querySelector('h1'))
             },
             mounted() {
-                console.log('mounted !')
+                console.log('mounted !', this.message)
+                console.log(document.querySelector('h1'))
             }
         }
         const app = Vue.createApp(App)

@@ -10,13 +10,23 @@
 <body>
     <div id="app">
         <ul>
-            <li v-for="fruit in fruits">
-                {{ fruit }}
-            </li>
+            <fruit-item 
+                v-for="name in fruits" 
+                v-bind:fruit-name="name"></fruit-item>
         </ul>
     </div>
+
     <script>
+        const FruitItem = {
+            template: '<li>{{ fruitName }}</li>',
+            props: ['fruitName']
+        }
         const App = {
+            components: {
+                // FruitItem: FruitItem와 같은 의미 
+                // 이렇게 객체 리터럴의 속성과 값이 같으면 생략 가능.
+                FruitItem 
+            },
             data() {
                 return {
                     fruits: [

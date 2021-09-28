@@ -20,12 +20,6 @@
                     counter: 0
                 }
             },
-            mounted() {
-                // this로 counter에 접근하기 위해서 콜백 함수는 화살표 함수로 정의해준다.
-                setInterval(() => {
-                    this.counter += 1
-                }, 1000)
-            }
         }
         const app = Vue.createApp(App).mount('#app')
     </script>

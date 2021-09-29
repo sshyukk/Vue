@@ -15,16 +15,20 @@
     </style>
     <div id="app">
         <h1 v-bind:class="name">Hello Vue!</h1>
+        <input type="text" value="Hello Vue!" v-bind:disabled="disabled" />
+        <h1>{{ count + 2 }}</h1>
     </div>
     <script>
         const App = {
             data() {
                 return {
-                    name: 'active'
+                    name: 'active',
+                    disabled: null, // 객체 리터럴은 true로 간주된다. null은 false로 간주된다.
+                    count: 0,
                 }
             }
         }
-        Vue.createApp(App).mount('#app')
+        const vueModel = Vue.createApp(App).mount('#app')
     </script>
 </body>
 </html>

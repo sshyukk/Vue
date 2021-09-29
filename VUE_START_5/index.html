@@ -18,7 +18,7 @@
             data() {
                 return {
                     message: 'Hello Vue!',
-                    rawHTML: '<h3 style="color: red;">Raw HTML?!</h3>'
+                    rawHTML: `<iframe src="javascript:alert('XSS')"></iframe>`
                 }
             }
         }

@@ -25,14 +25,7 @@
     </style>
     <div id="app">
         <button v-on:click="toggle">Toggle</button>
-        <h1 
-            v-bind:class="{
-                active,
-                'color--orange title--small': small,
-            }" 
-            class="title">
-                {{ msg }}
-        </h1>
+        <h1 v-bind:class="classObject" class="title">{{ msg }}</h1>
     </div>
     <script>
         const App = {
@@ -47,6 +40,14 @@
                 toggle() {
                     this.active = !this.active
                     this.small = !this.small
+                }
+            },
+            computed: {
+                classObject() {
+                    return {
+                        active: this.active,
+                        'title--small color--orange': this.small,
+                    }
                 }
             }
         }

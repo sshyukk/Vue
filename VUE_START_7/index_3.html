@@ -34,6 +34,17 @@
                         this.lastName = names[names.length - 1]
                     }
                 }
+            },
+            watch: {
+                firstName(newValue, oldValue) {
+                    console.log('Watch: ', newValue, oldValue)
+                },
+                lastName() {
+                    console.log('Watch: ', this.lastName)
+                },
+                fullName() {
+                    console.log('Watch: ', this.fullName)
+                }
             }
         }
         const viewModel = Vue.createApp(App).mount('#app')

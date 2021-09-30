@@ -19,13 +19,16 @@
         .title--small {
             font-size: 30px;
         }
+        .color--orange {
+            color: orange;
+        }
     </style>
     <div id="app">
         <button v-on:click="toggle">Toggle</button>
         <h1 
             v-bind:class="{
                 active,
-                'title--small': small,
+                'color--orange title--small': small,
             }" 
             class="title">
                 {{ msg }}

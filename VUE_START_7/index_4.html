@@ -9,7 +9,12 @@
 </head>
 <body>
     <div id="app">
-        <h1>{{ user.age }}</h1>
+        <button v-on:click="capitalize">Capitalize</button>
+        <ol>
+            <li v-for="fruit in fruits">
+                {{ fruit.name }}
+            </li>
+        </ol>
     </div>
     <script>
         // component
@@ -20,6 +25,11 @@
                         name: 'Leon',
                         age: 22,
                     },
+                    fruits: [
+                        { id: 1, name: 'Apple' },
+                        { id: 2, name: 'Banana' },
+                        { id: 3, name: 'Cherry' },
+                    ]
                 }
             },
             watch: {
@@ -29,6 +39,19 @@
                     },
                     deep: true,
                 },
+                fruits: {
+                    handler() {
+                        console.log(this.fruits)
+                    },
+                    deep: true
+                }
+            },
+            methods: {
+                capitalize() {
+                    this.fruits.forEach(fruit => {
+                        fruit.name = fruit.name.toUpperCase()
+                    })
+                }
             }
         }
         const viewModel = Vue.createApp(App).mount('#app')

@@ -16,7 +16,7 @@
         .active {
             color: red;
         }
-        .small {
+        .title--small {
             font-size: 30px;
         }
     </style>
@@ -24,8 +24,8 @@
         <button v-on:click="toggle">Toggle</button>
         <h1 
             v-bind:class="{
-                active: isActive,
-                small: isSmall,
+                active,
+                'title--small': small,
             }" 
             class="title">
                 {{ msg }}
@@ -36,14 +36,14 @@
             data() {
                 return {
                     msg: 'Hello Vue!',
-                    isActive: false,
-                    isSmall: true,
+                    active: false,
+                    small: true,
                 }
             },
             methods: {
                 toggle() {
-                    this.isActive = !this.isActive
-                    this.isSmall = !this.isSmall
+                    this.active = !this.active
+                    this.small = !this.small
                 }
             }
         }

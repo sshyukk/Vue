@@ -8,16 +8,21 @@
     <script src="https://unpkg.com/vue@next"></script>
 </head>
 <body>
-    
+    <style>
+        [v-cloak] {
+           display: none; 
+        }
+    </style>
     <div id="app">
         <button v-on:click="toggle">Toggle!</button>
-        
-        <h1 v-show="isShow">Hello Vue!</h1>
+        <!-- v-cloak: 이름만 작성해도 속성와 값 둘 다의 효과를 본다. -->
+        <h1 v-show="isShow" v-cloak>{{ message }}</h1>
     </div>
     <script>
         const App = {
             data() {
                 return {
+                    message: 'Hello Vue!',
                     isShow: true // {}: true, '': false, 0: false, 1: true, (null, undefined): false
                 }
             },

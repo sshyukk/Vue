@@ -8,21 +8,30 @@
     <script src="https://unpkg.com/vue@next"></script>
 </head>
 <body>
-    
+    <style>
+        h1 {
+            border: 4px solid;
+        }
+    </style>
     <div id="app">
-        <h1 v-bind:style="`color: ${color}`" 
-            v-on:click="toBlue">Hello Vue!</h1>
+        <!-- v-bind:style="{ color: color, width: width }"와 같은 의미. -->
+        <h1 v-bind:style="{ color, width: `${width}px` }" 
+            v-on:click="toBlue(); increaseWidth();">Hello Vue!</h1>
     </div>
     <script>
         const App = {
             data() {
                 return {
-                    color: 'red'
+                    color: 'red',
+                    width: 200
                 }
             },
             methods: {
                 toBlue() {
-                    this.color = 'blue'
+                    this.color = 'royalblue'
+                },
+                increaseWidth() {
+                    this.width += 10
                 }
             }
         }

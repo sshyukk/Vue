@@ -10,22 +10,22 @@
 <body>
     
     <div id="app">
-        <h1 v-if="isShow">Hello Vue!</h1>
-        <template v-else-if="[]">
-            <h2>Application..</h2>
-            <h2>1234</h2>
-            <p>5678</p>
-        </template>
-        <h2 v-else>Good Morning~</h2>
+        <button v-on:click="toggle">Toggle!</button>
+        
+        <h1 v-show="isShow">Hello Vue!</h1>
     </div>
     <script>
         const App = {
             data() {
                 return {
-                    isShow: '' // {}: true, '': false, 0: false, 1: true, (null, undefined): false
+                    isShow: true // {}: true, '': false, 0: false, 1: true, (null, undefined): false
                 }
             },
-            
+            methods: {
+                toggle() {
+                    this.isShow = !this.isShow
+                }
+            }
         }
         const viewModel = Vue.createApp(App).mount('#app')
     </script>

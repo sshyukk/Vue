@@ -11,7 +11,11 @@
     
     <div id="app">
         <h1 v-if="isShow">Hello Vue!</h1>
-        <h2 v-else-if="[]">Application..</h2>
+        <template v-else-if="[]">
+            <h2>Application..</h2>
+            <h2>1234</h2>
+            <p>5678</p>
+        </template>
         <h2 v-else>Good Morning~</h2>
     </div>
     <script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <h1 v-if="isShow">Hello Vue!</h1>
+        <h2 v-else-if="[]">Application..</h2>
+        <h2 v-else>Good Morning~</h2>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    isShow: '' // {}: true, '': false, 0: false, 1: true, (null, undefined): false
+                }
+            },
+            
+        }
+        const viewModel = Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

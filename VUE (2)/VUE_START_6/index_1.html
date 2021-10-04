@@ -9,26 +9,22 @@
 </head>
 <body>
     <div id="app">
-        <h1 @click="a(), b(), c()">Hello Vue!</h1>
+        <a href="https://google.com"
+            target="_blank"
+            @click.prevent.once="log">Google</a>
     </div>
     <script>
         const App = {
             data() {
                 return {
-                    msg: 'Vue!'
+
                 }
             },
             methods: {
-                a() {
-                    console.log('A')
-                },
-                b() {
-                    console.log('B')
-                },
-                c() {
-                    console.log('C')
-                },
-            },
+                log(event) {
+                    console.log(event.target)
+                }
+            }
         }
         const viewModel = Vue.createApp(App).mount('#app')
     </script>

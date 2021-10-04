@@ -18,18 +18,28 @@
             <button>Add</button>
         </form>
         <ul>
-            <li v-for="todo in todos" 
-                v-bind:key="todo.id">
-                {{ todo.title }}
-                <button v-on:click="removeTodo(todo.id)">Remove</button>
-            </li>
+            <todo-item v-for="todo in todos"
+                    v-bind:key="todo.id"
+                    v-bind:todo="todo"
+                    v-on:remove="removeTodo" />
         </ul>
     </div>
     <script>
         function generateId() {
             return `${Date.now()}${Math.random()}`
         }
+        const TodoItem = {
+            template: `
+                <li>
+                    {{ todo.title }}
+                    <button v-on:click="$emit('remove', todo.id)">Remove</button>
+                </li>`,
+            props: ['todo']
+        }
         const App = {
+            components: {
+                TodoItem
+            },
             data() {
                 return {
                     newTodoText: '',

@@ -22,14 +22,11 @@
         }
     </style>
     <div id="app">
-        <div @click.capture="log" class="parent">
-            <div @click.stop="log" class="child"></div>
+        <div @click.self="log" class="parent">
+            <div class="child"></div>
         </div>
     </div>
     <script>
-        window.addEventListener('click', () => {
-            console.log('window!')
-        }, { capture: true })
         const App = {
             data() {
                 return {
@@ -38,7 +35,7 @@
             },
             methods: {
                 log(event) {
-                    console.log(event.currentTarget)
+                    console.log(event.currentTarget, event.target)
                 }
             }
         }

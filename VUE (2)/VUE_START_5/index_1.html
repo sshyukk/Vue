@@ -17,6 +17,11 @@
                 placeholder="E.g. Feed the cat">
             <button>Add</button>
         </form>
+        <ul>
+            <li v-for="todo in todos" key="todo.id">
+                {{ todo }}
+            </li>
+        </ul>
     </div>
     <script>
         function generateId() {

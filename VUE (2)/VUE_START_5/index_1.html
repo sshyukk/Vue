@@ -18,8 +18,10 @@
             <button>Add</button>
         </form>
         <ul>
-            <li v-for="todo in todos" key="todo.id">
-                {{ todo }}
+            <li v-for="todo in todos" 
+                v-bind:key="todo.id">
+                {{ todo.title }}
+                <button v-on:click="removeTodo(todo.id)">Remove</button>
             </li>
         </ul>
     </div>
@@ -43,6 +45,11 @@
                     })
                     this.newTodoText = ''
                     console.log(this.todos)
+                },
+                removeTodo(todoId) {
+                    this.todos = this.todos.filter(todo => {
+                        return todo.id !== todoId
+                    })  
                 }
             }
         }

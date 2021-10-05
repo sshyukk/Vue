@@ -10,7 +10,8 @@
 <body>
     
     <div id="app">
-        <input @keyup.alt.shift.arrow-down="log" type="text">
+        <!-- meta키는 keyup에서는 동작하지 않는다. keydown을 사용해야함. -->
+        <input @keydown.meta.arrow-down="log" type="text">
     </div>
     <script>
         const App = {

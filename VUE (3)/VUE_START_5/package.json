@@ -1,0 +1,15 @@
+{
+  "name": "VUE_START_5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serve": "^12.0.1"
+  }
+}

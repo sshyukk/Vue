@@ -13,7 +13,8 @@
         <!-- meta키는 keyup에서는 동작하지 않는다. keydown을 사용해야함. -->
         <!-- 정확하게 해당 키만 눌렀을 때 인지하는 키워드. exact -->
         <input @keydown.arrow-down.exact="log" type="text">
-        <button @click.exact="log">Click!</button>
+        <!-- 마우스의 왼쪽, 오른쪽, 가운데 버튼을 눌렀을 때의 이벤트를 처리할 수 있다. -->
+        <button @click.right.left.middle="log">Click!</button>
     </div>
     <script>
         const App = {

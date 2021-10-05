@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- v-model은 한글 입력 시 완벽하게 실시간이 아니다! -->
+        <!-- 이럴 경우에는 v-bind를 사용하여 javascript를 이용하여 갱신을 해준다. -->
+        <input v-bind:value="msg"
+                v-on:input="msg = $event.target.value" />
+        <h1>{{ msg }}</h1>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    msg: 'Hello Vue!' 
+                }
+            }
+        }
+        const viewModel = Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

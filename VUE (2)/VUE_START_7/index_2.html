@@ -11,7 +11,9 @@
     
     <div id="app">
         <!-- meta키는 keyup에서는 동작하지 않는다. keydown을 사용해야함. -->
-        <input @keydown.meta.arrow-down="log" type="text">
+        <!-- 정확하게 해당 키만 눌렀을 때 인지하는 키워드. exact -->
+        <input @keydown.arrow-down.exact="log" type="text">
+        <button @click.exact="log">Click!</button>
     </div>
     <script>
         const App = {

@@ -21,12 +21,16 @@
     </style>
     <div id="app">
         <div class="parent"
-             v-on:wheel="log">
+             @wheel.passive="log">
             <div v-for="n in 15" 
                  class="child">{{ n }}</div>
         </div>
     </div>
     <script>
+        const parentEl = document.querySelector('.parent')
+        parentEl.addEventListener('wheel', () => {
+
+        }, { passive: true }) // passive 옵션은 화면의 렌더링과 로직을 분리해서 처리.
         const App = {
             data() {
                 return {
@@ -35,7 +39,9 @@
             },
             methods: {
                 log() {
-                    console.log('wheel!')
+                    for (let i = 0; i < 10000; i += 1) {
+                        console.log(i)
+                    }
                 }
             }
         }

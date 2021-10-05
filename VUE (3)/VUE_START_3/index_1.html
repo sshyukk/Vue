@@ -7,11 +7,11 @@
     <title>Document</title>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
-<upper-name>
-    <upper-name id="app">
-        <upper-name name="apple"></upper-name>
-        <upper-name name="banana"></upper-name>
-        <upper-name name="cherry"></upper-name>
+<body>
+    <div id="app">
+        <upper-name v-for="fruit in fruits" 
+                    :key="fruit.id"
+                    :name="fruits.name"></upper-name>
     </div>
     <script>
         const App = {
@@ -26,11 +26,16 @@
         const app = Vue.createApp(App)
         app.component('upper-name', {
             template: `
-                <div>
+                <div @click="capitalize">
                     {{ name }}
                 </div>
             `,
-            props: ['name']
+            props: ['name'],
+            methods: {
+               capitalize() {
+                   this.name = this.name.toUpperCase()
+               }
+            }
         })
         const viewModel = app.mount('#app')
     </script>

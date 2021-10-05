@@ -11,29 +11,40 @@
     <div id="app">
         <upper-name v-for="fruit in fruits" 
                     :key="fruit.id"
-                    :name="fruits.name"></upper-name>
+                    :hello="fruit.name"
+                    @to-upper="toUpper(fruit, $event)"></upper-name>
     </div>
     <script>
         const App = {
             data() {
-                fruits: [
-                    { id: '1', name: 'apple' },
-                    { id: '2', name: 'banana' },
-                    { id: '3', name: 'cherry' },
-                ]
+                return {
+                    fruits: [
+                        { id: '1', name: 'apple' },
+                        { id: '2', name: 'banana' },
+                        { id: '3', name: 'cherry' },
+                    ]
+                }
+            },
+            methods: {
+                toUpper(fruit, upperName) {
+                    console.log(fruit, upperName)
+                    fruit.name = upperName
+                }
             }
         }
         const app = Vue.createApp(App)
         app.component('upper-name', {
             template: `
                 <div @click="capitalize">
-                    {{ name }}
+                    {{ hello }}
                 </div>
             `,
-            props: ['name'],
+            props: ['hello'],
             methods: {
+                // 외부의 데이터 값을 수정한다는 요청을 컴포넌트 내부에서 외부로 올려준다.
                capitalize() {
-                   this.name = this.name.toUpperCase()
+                   // 컴포넌트 내부에서 커스텀한 이벤트를 컴포넌트 외부로 넘겨준다.
+                   this.$emit('to-upper', this.hello.toUpperCase())
                }
             }
         })

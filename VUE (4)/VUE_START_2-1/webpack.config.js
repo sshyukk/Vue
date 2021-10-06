@@ -13,6 +13,13 @@ module.exports = {
             {
                 test: /\.vue$/,
                 use: 'vue-loader'
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'vue-style-loader',
+                    'css-loader'
+                ]
             }
         ]
     },
@@ -21,5 +28,8 @@ module.exports = {
         new HtmlPlugin({
             template: './src/index.html'
         })
-    ]
+    ],
+    devServer: {
+        port: 8080
+    }
 } 

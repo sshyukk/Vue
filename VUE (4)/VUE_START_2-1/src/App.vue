@@ -2,8 +2,7 @@
   <h1
     v-if="msg" 
     class="message" 
-    @click="log"
-  >
+    @click="log">
     {{ msg }}
   </h1>
   <Hello />
@@ -18,9 +17,9 @@ export default {
     },
     data() {
         return {
-            msg: 'Hello Webpack?..'
+            msg: 'Hello Vue!'
         }
-    }
+    },
 }
 </script>
 

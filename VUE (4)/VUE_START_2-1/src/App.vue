@@ -3,7 +3,8 @@
     <Hello />
 </template>
 <script>
-import Hello from './components/Hello.vue'
+// 절대 경로를 사용
+import Hello from '~/components/Hello'
 
 export default {
     components: {

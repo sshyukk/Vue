@@ -2,8 +2,9 @@
     <h1>Hello</h1>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+$color: red;
 h1 {
-    color: royalblue;
+    color: $color;
 }
 </style>

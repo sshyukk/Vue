@@ -3,21 +3,21 @@
     {{ msg }}
   </h1>
   <Hello>
-    <h2>Hello Vue?</h2>
-    <p>The brown fox!</p>
+    <template #abc>
+      <h2>ABC</h2>
+    </template>
+    <template #xyz>
+      <h2>XYZ</h2>
+    </template>
   </Hello>
-  <Btn>Click me!</Btn>
-  <Btn />
 </template>
 
 <script>
 import Hello from '~/components/Hello'
-import Btn from '~/components/Btn'
 
 export default {
   components: {
-    Hello,
-    Btn
+    Hello
   },
   data() {
     return {

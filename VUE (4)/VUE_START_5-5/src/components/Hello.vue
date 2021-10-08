@@ -1,6 +1,8 @@
 <template>
+  <slot name="abc">
+  </slot>
   <h1>Hello</h1>
-  <slot>
+  <slot name="xyz">
   </slot>
 </template>
 

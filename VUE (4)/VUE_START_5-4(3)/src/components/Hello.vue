@@ -1,8 +1,13 @@
 <template>
   <label>
     <input
-      :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)" />
+      :value="message"
+      @input="$emit('update:message', $event.target.value)" />
+  </label>
+  <label>
+    <input
+      :value="name"
+      @input="$emit('update:name', $event.target.value)" />
   </label>
 </template>
 
@@ -10,7 +15,11 @@
 export default {
   
   props: {
-    modelValue: {
+    message: {
+      type: String,
+      default: ''
+    },
+    name: {
       type: String,
       default: ''
     }

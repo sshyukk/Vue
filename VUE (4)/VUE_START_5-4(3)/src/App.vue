@@ -2,9 +2,7 @@
   <h1>
     {{ msg }}
   </h1>
-  <Hello
-    :message="msg"
-    @update="msg = $event" />
+  <Hello v-model="msg" />
 </template>
 
 <script>

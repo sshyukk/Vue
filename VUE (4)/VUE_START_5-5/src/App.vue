@@ -3,11 +3,10 @@
     {{ msg }}
   </h1>
   <Hello>
-    <template #abc>
-      <h2>ABC</h2>
-    </template>
-    <template #xyz>
-      <h2>XYZ</h2>
+    <template #default="{ hello }">
+      <h2>
+        Hello {{ hello }}
+      </h2>
     </template>
   </Hello>
 </template>

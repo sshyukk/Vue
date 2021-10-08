@@ -11,7 +11,8 @@ export default {
       type: String,
       default: ''
     }
-  }
+  },
+  emits: ['please']
 }
 </script>
 

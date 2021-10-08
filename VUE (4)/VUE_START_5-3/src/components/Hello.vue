@@ -1,14 +1,17 @@
 <template>
-  <h1
-    :class="$attrs.class"
-    :style="$attrs.style"
-    @click="$attrs.onClick">
+  <h1>
     Hello
   </h1>
-  <h2 @click="$attrs.onClick">
-    Haha?!
-  </h2>
 </template>
+
+<script>
+export default {
+  inheritAttrs: false,
+  mounted() {
+    console.log(this.$attrs)
+  }
+}
+</script>
 
 <style scoped lang="scss">
 $color: red;

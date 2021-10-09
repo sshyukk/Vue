@@ -1,24 +1,35 @@
 <template>
-  <h1>
-    {{ msg }}
-  </h1>
-  <Hello ref="hello" />
+  <div v-if="!isEdit">
+    {{ msg }} 
+    <button @click="onEdit">
+      Edit!
+    </button>
+  </div>
+  <div v-else>
+    <input
+      ref="editor"
+      v-model="msg"
+      type="text"
+      @keyup.enter="isEdit = false" />
+  </div>
 </template>
 
 <script>
-import Hello from '~/components/Hello'
-
 export default {
-  components: {
-    Hello
-  },
   data() {
     return {
       msg: 'Hello Vue!',
+      isEdit: false,
       }
   },
-  mounted() {
-    console.log(this.$refs.hello.$refs.world)
+  methods: {
+    onEdit() {
+      this.isEdit = true
+      // 반응형 데이터가 바뀐다고 바로 렌더링이 적용되는 것이 아니다. 따라서 setTimeout으로 시간을 벌어주어야 한다.
+      this.$nextTick(() => {
+        this.refs.$editor.focus()
+      }, 0)
+    }
   }
 }
 </script>

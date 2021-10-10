@@ -1,9 +1,12 @@
 <template>
-  <h2>Child! / {{ msg }}</h2>
+  <h2>Child! / {{ msg.value }}</h2>
 </template>
 
 <script>
 export default {
-    inject: ['msg']
+    inject: ['msg'],
+    mounted() {
+        console.log(this.msg)
+    }
 }
 </script>

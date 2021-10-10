@@ -1,5 +1,5 @@
 <template>
-  <h1>
+  <h1 @click="msg += '!'">
     {{ msg }}
   </h1>
   <Parent />
@@ -7,13 +7,15 @@
 
 <script>
 import Parent from '~/components/Parent'
+import { computed } from 'vue'
+
 export default {
   components: {
     Parent
   },
   provide() {
     return {
-      msg: this.msg
+      msg: computed(() => this.msg)
     }
   },
   data() {

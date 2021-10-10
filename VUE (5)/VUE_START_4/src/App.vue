@@ -1,11 +1,15 @@
 <template>
-  <Modal width="300">
-    <template #activator>
-      <button>On Modal!</button>
-    </template>
-    <h3>App.vue</h3>
-  </Modal>
-  <Hello />
+  <div style="transfrom: scale(1);">
+    <Modal
+      v-model="isShow"
+      width="300">
+      <template #activator>
+        <button>On Modal!</button>
+      </template>
+      <h3>App.vue</h3>
+    </Modal>
+    <Hello />
+  </div>
 </template>
 
 <script>
@@ -16,7 +20,7 @@ export default {
   },
   data() {
     return {
-      
+      isShow: false
     }
   },
   

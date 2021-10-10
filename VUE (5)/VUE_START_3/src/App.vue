@@ -21,6 +21,9 @@
     :key="'result-' + field.title">
     {{ field.value }}
   </div>
+  <button @click="submit">
+    SUBMIT!
+  </button>
 </template>
 
 <script>
@@ -44,6 +47,17 @@ export default {
           items: ['20-ages', '30-ages', '40-ages', '50-ages']
         }
       ]
+    }
+  },
+  methods: {
+    submit() {
+      const results = this.fields.map((field) => {
+        return {
+          title: field.title,
+          value: field.value
+        }
+      })
+      console.log(results)
     }
   }
 }

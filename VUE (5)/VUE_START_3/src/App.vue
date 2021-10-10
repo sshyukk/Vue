@@ -10,7 +10,7 @@
   <component
     :is="field.component"
     v-for="field in fields"
-    :key="field.title"
+    :key="'component-' + field.title"
     v-model="field.value"
     :title="field.title"
     :items="field.items" />
@@ -18,7 +18,7 @@
   <h1>RESULT</h1>
   <div
     v-for="field in fields"
-    :key="field.title">
+    :key="'result-' + field.title">
     {{ field.value }}
   </div>
 </template>

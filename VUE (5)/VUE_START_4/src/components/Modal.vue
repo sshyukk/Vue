@@ -2,18 +2,20 @@
   <div @click="onModal">
     <slot name="activator"></slot>
   </div>
-  <template v-if="isShow">
-    <div
-      class="modal"
-      @click="offModal">
+  <teleport>
+    <template v-if="isShow">
       <div
-        :style="{ width: `${parseInt(width, 10)}px` }"
-        class="modal__inner"
-        @click.stop> 
-        <slot></slot>
+        class="modal"
+        @click="offModal">
+        <div
+          :style="{ width: `${parseInt(width, 10)}px` }"
+          class="modal__inner"
+          @click.stop> 
+          <slot></slot>
+        </div>
       </div>
-    </div>
-  </template>
+    </template>
+  </teleport>
 </template>
 
 <script>

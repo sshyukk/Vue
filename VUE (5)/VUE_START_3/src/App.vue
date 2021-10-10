@@ -24,13 +24,10 @@
 </template>
 
 <script>
-import TextField from '~/components/fields/TextFields'
-import SimpleRadio from '~/components/fields/SimpleRadio'
-
+import * as FieldComponents from '~/components/fields/index.js'
 export default {
   components: {
-    TextField,
-    SimpleRadio,
+    ...FieldComponents
   },
   data() {
     return {
@@ -44,7 +41,7 @@ export default {
           component: 'SimpleRadio',
           title: 'age-range!',
           value: '',
-          items: ['20대', '30대', '40대', '50대']
+          items: ['20-ages', '30-ages', '40-ages', '50-ages']
         }
       ]
     }

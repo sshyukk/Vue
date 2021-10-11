@@ -4,14 +4,19 @@
   <button @click="increaseCount">
     Increase!
   </button>
+  <World />
+  <button @click="fetchTodo">
+    Update Msg!!
+  </button>
 </template>
 
 <script>
 import Hello from '~/components/Hello'
-
+import World from '~/components/World'
 export default {
   components: {
-    Hello
+    Hello,
+    World
   },
   data() {
     return {
@@ -21,6 +26,9 @@ export default {
   methods: {
     increaseCount() {
       this.$store.commit('increaseCount')
+    },
+    fetchTodo() {
+      this.$store.dispatch('fetchTodo')
     }
   }
   

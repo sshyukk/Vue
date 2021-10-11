@@ -1,19 +1,22 @@
 <template>
   <h1>World.vue</h1>
-  <div>{{ msg }}</div>
-  <div @click="increaseCount">
+  <div>{{ reversedMsg }}</div>
+  <div @click="decreaseCount">
     {{ count }}
   </div>
 </template>
 
 <script>
-import { state, mutations } from '~/store/index'
+import { state, mutations, getters } from '~/store/index'
 export default {
     data() {
         return state
     },
+    computed: {
+        reversedMsg: getters.reversedMsg
+    },
     methods: {
-        increaseCount: mutations.increaseCount
+        decreaseCount: mutations.decreaseCount
     }
 }
 </script>

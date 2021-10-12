@@ -11,31 +11,32 @@
   <button @click="fetchTodo">
     Fetch Todo!
   </button>
+  <div>{{ msg }}</div>
 </template>
 
 <script>
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 export default {
   computed: {
-    count() {
-      return this.$store.state.count.count
-    },
-    message() {
-      return this.$store.state.message.message
-    },
-    reversedMessage() {
-      return this.$store.getters['message/reversedMessage']
-    }
+    ...mapState(['msg']),
+    ...mapState('count', [
+      'count'
+    ]),
+    ...mapState('message', [
+      'message'
+    ]),
+    ...mapGetters('message', [
+      'reversedMessage'
+    ])
   },
   methods: {
-    increaseCount() {
-      this.$store.commit('count/increaseCount')
-    },
-    decreaseCount() {
-      this.$store.commit('count/decreaseCount')
-    },
-    fetchTodo() {
-      this.$store.dispatch('message/fetchTodo')
-    }
+    ...mapMutations('count', [
+      'increaseCount',
+      'decreaseCount'
+    ]),
+    ...mapActions('message', [
+      'fetchTodo'
+    ])
   }
 }
 
